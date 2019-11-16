@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                a: '1111',
+                b: '3333'
+            }
+        })
+        vm.$watch('a', function () {
+            alert("a发生了变化");
+            this.b = this.a + 10;
+        })
+        document.onclick = function () {
+            vm.a = 222
+        }
+    </script>
+</body>
+
+</html>

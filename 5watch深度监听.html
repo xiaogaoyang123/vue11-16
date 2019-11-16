@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+<p>{{a}}</p>
+<p>{{person.name}}</p>
+    </div>
+    <script>
+    let vm=new Vue({
+        el:'#app',
+        data:{
+            a:'222',
+            b:'899',
+            person:{
+               name:'zhangsan',
+               age:18
+           }
+        },
+
+    })
+    vm.$watch('person',function(){
+        alert(this.person.name+'发生了变化')
+
+    },{
+        deep:true
+    })
+    document.onclick=function(){
+        vm.person.name='张三';
+    }
+    </script>
+</body>
+</html>
